@@ -19,4 +19,5 @@ else
     git add "hosts/$HOSTNAME"
     git commit -m "NEW IP ADDRESS AS OF `date`"
     git push
+    git checkout main
 fi
