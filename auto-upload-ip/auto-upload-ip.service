@@ -1,0 +1,9 @@
+[Unit]
+Descripttion=Get IP Address
+Wants=getip.timer
+
+[Service]
+ExecStart=/bin/getip.sh
+
+[Install]
+WantedBy=muti-user.target

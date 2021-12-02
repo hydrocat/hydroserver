@@ -1,0 +1,11 @@
+[Unit]
+Description=Get IP every day and post it to github
+Requires=getip.service
+
+[Timer]
+Unit=getip.service
+OnCalendat=daily
+RandomizedDelaySec=24h
+
+[Install]
+WantedBy=timers.target
