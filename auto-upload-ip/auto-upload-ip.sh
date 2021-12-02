@@ -1,7 +1,6 @@
 #!/bin/sh
-set -v
 
-#run this form the git repository
+#run this form the root of this git repository
 
 HOSTNAME=`hostname`
 
