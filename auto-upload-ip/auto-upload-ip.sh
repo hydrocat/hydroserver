@@ -4,6 +4,8 @@
 
 HOSTNAME=`hostname`
 
+git checkout ip
+
 OLD_IP=`cat hosts/$HOSTNAME`
 IP=`curl -s icanhazip.com`
 
@@ -14,10 +16,10 @@ then
     echo IP address of $HOSTNAME did not change.
 else
     echo NEW IP:$IP OLD IP:$OLD_IP
-    git checkout ip
     echo "$IP" > hosts/$HOSTNAME
     git add "hosts/$HOSTNAME"
     git commit -m "NEW IP ADDRESS AS OF `date`"
     git push
-    git checkout main
 fi
+
+git checkout main
