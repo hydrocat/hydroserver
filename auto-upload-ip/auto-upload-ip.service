@@ -1,9 +1,11 @@
 [Unit]
-Descripttion=Get IP Address
-Wants=getip.timer
+Description=Upload IP Address to GitHub
+Wants=auto-upload-ip.timer
 
 [Service]
-ExecStart=/bin/getip.sh
+Type=oneshot
+WorkingDirectory=/home/hydrocat/hydroserver
+ExecStart=/bin/auto-upload-ip.sh
 
 [Install]
 WantedBy=muti-user.target
