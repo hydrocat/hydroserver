@@ -9,7 +9,8 @@ git checkout ip
 OLD_IP=`cat hosts/$HOSTNAME`
 IP=`curl -s icanhazip.com`
 
-echo $IP
+echo Curent IP: $IP
+echo IP on Github: $OLD_IP
 
 if test "$IP" = "$OLD_IP"
 then
