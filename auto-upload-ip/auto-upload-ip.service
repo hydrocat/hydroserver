@@ -4,9 +4,8 @@ Wants=auto-upload-ip.timer
 
 [Service]
 Type=oneshot
-WorkingDirectory=/etc/hydroserver/
+WorkingDirectory=/etc/hydroip/
 ExecStart=/bin/auto-upload-ip.sh
-User=auto-upload-ip
 
 [Install]
 WantedBy=muti-user.target

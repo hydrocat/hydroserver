@@ -1,12 +1,17 @@
 #!/bin/sh
 
-#run this form the root of this git repository
+set -e
+set -v
 
 HOSTNAME=`hostname`
 
-git checkout ip
+if test -e $HOSTNAME
+then
+	OLD_IP=`cat $HOSTNAME`
+else
+	OLD_IP='No previous ip for this host'
+fi
 
-OLD_IP=`cat hosts/$HOSTNAME`
 IP=`curl -s icanhazip.com`
 
 echo Curent IP: $IP
@@ -17,10 +22,8 @@ then
     echo IP address of $HOSTNAME did not change.
 else
     echo NEW IP:$IP OLD IP:$OLD_IP
-    echo "$IP" > hosts/$HOSTNAME
-    git add "hosts/$HOSTNAME"
-    git commit -m "NEW IP ADDRESS AS OF `date`"
+    echo "$IP" > $HOSTNAME
+    git add "$HOSTNAME"
+    git commit -m "NEW IP ADDRESS OF $HOSTNAME AS OF `date`"
     git push
 fi
-
-git checkout main
